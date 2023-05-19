@@ -711,7 +711,7 @@ def adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_tab
             goal_progress.update(i, advance=goal_list[i])
             goal=0
         layout_map["goal_box"].update(goal_table)
-    #print(layout_map)
+    ##print(layout_map)
 
 
 
