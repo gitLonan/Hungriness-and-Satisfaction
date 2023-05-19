@@ -104,7 +104,7 @@ def shop_menu(layout_map ,shop, name, money, place):
         buy = Prompt.ask('[dark_orange3]What do you want to buy(just type the number)?').lower()
                     
         if buy == 'back':
-            #print(hung)
+            ##print(hung) 
             hung = (sum(hung) + sum(hung_tag))*10
             #print(hung,sum(hung_tag))
             return hung, currently_spent
