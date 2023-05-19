@@ -1,0 +1,23 @@
+[
+    {
+        "person played": "Lazar",
+        "name": "Ana",
+        "difficulty": "Normal",
+        "hungfriness": 0,
+        "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Marko",
+        "difficulty": "Normal",
+        "hungfriness": 60.0,
+        "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Veljko",
+        "difficulty": "Hard",
+        "hungfriness": 40.5,
+        "satisfaction": 0
+    }
+]
