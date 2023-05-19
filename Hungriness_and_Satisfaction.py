@@ -218,12 +218,15 @@ def loading_screen_before_intro():
 
                 loading_progress.stop_task(current_task)
 
+
+
 def main_menu():
     global dif
     space_creation()
     start = console.rule("""[bold gray]... 1.START ...""")
     dif_setting = console.rule("[bold gray]... 2.DIfficulty Settings ...")
-    q_uit = console.rule("[bold gray]... 3.Quit ...")
+    score = console.rule('[bold gray]... 3.Score Board ...')
+    q_uit = console.rule("[bold gray]... 4.Quit ...")
     print("\n"*5)
     while True:
         state = input("Choose by typing the number:  ")
@@ -232,6 +235,8 @@ def main_menu():
         elif state == "2":
             dif = choosing_difficulty(dif)
         elif state == "3":
+            score_board()
+        elif state == "4":
             sys.exit("Thank you for playing the game")
         main_menu()
 
@@ -644,7 +649,7 @@ This are the end result with the [bold red]{name.name}[/bold red]
         dic = {'person played': player,
             'name': name.name,
            'difficulty': dif,
-           'hungfriness': hungriness_points,
+           'hungriness': hungriness_points,
            'satisfaction': satisfaction_points}
         game_saving(dic)
         sys.exit()
@@ -658,6 +663,64 @@ def game_saving(dic, filename ='score_board.json'):
         scoreBoard.seek(0)
         json.dump(char_json, scoreBoard, indent=4)
 
+def score_board():
+    score_layout = Layout()
+    score_layout.split_column( Layout(name='Easy'),
+                 Layout(name='Normal'),
+                 Layout(name='Hard'))
+    score_normal = []
+    score_easy = []
+    score_hard = []
+    with open('score_board.json', 'r') as file:
+        score_sheet = json.load(file)
+        for entry in score_sheet:
+            if entry['difficulty'] == 'Normal':
+                score_normal.append(entry)
+            elif entry['difficulty'] == 'Easy':
+                score_easy.append(entry)
+            elif entry['difficulty'] == 'Hard':
+                score_hard.append(entry)
+    score_normal_table = Table(title='Score for Normal', title_justify='center')
+    score_easy_table = Table(title= 'Score for Easy',expand= True)
+    score_hard_table = Table(title='Score for Hard', expand= True)
+
+    #table_panel = Align.center(Panel.fit(table, style="dark_olive_green3"))
+
+
+    score_normal_table.add_column(header='Player')
+    score_normal_table.add_column(header='Character name', justify='left')
+    score_normal_table.add_column(header='difficulty', justify='center')
+    score_normal_table.add_column(header='hungriness', justify='right')
+    score_normal_table.add_column(header='satisfaction', justify='right')
+    
+    for i in score_normal:
+        score_normal_table.add_row(score_normal[i]['person played'],score_normal[i]['name'], score_normal[i]['difficulty'],score_normal[i]['hungriness'],score_normal[i]['satisfaction'] )
+
+    normal_table_Panel = Align.center(Panel(score_normal_table))
+
+
+    score_easy_table.add_column(header='Player')
+    score_easy_table.add_column(header='Character name', justify='left')
+    score_easy_table.add_column(header='difficulty', justify='center')
+    score_easy_table.add_column(header='hungriness', justify='right')
+    score_easy_table.add_column(header='satisfaction', justify='right')
+
+    easy_table_Panel = Align.center(Panel(score_easy_table))
+
+
+    score_hard_table.add_column(header='Player')
+    score_hard_table.add_column(header='Character name', justify='left')
+    score_hard_table.add_column(header='difficulty', justify='center')
+    score_hard_table.add_column(header='hungriness', justify='right')
+    score_hard_table.add_column(header='satisfaction', justify='right')
+
+    hard_table_Panel = Align.center(Panel(score_hard_table))
+
+    score_layout['Normal'].update(normal_table_Panel)
+    score_layout['Easy'].update(easy_table_Panel)
+    score_layout['Hard'].update(hard_table_Panel)
+    print(score_layout)
+    input()
 
 #called in main_game_screen on 590line
 def adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table):
