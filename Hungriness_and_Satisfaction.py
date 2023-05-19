@@ -56,34 +56,34 @@ dif = 'Normal' #sets difficulty in func choosing_difficulty, because if you dont
 ####ZA igrace mogu da napravim tagove i sto vise neka hrana ima tagove koji se poklapaju sa tom hranom
 #ono daje vise score-a
 ############# ZEMUN ###############
-zemun_kiklop = [{'hrana': 'Gyros 700g' ,            'cena': 800 , 'koeficijent': 1.9, 'tags': ['meat','big', 'tortilla','grilled']},
-                {'hrana': 'Kiklop hamburger 300g' , 'cena': 590 , 'koeficijent': 1.4, 'tags': ['meat', 'flatbread', 'low','grilled']},
-                {'hrana': 'Kebab rolls 225g' ,      'cena': 550, 'koeficijent': 1.3, 'tags': ['meat', 'kebab', 'bun', 'low','grilled']},
-                {'hrana': 'Pancakes' ,              'cena': 390 , 'koeficijent': 1.2, 'tags': ['sweet', 'eurocrem', 'bananas', 'medium']}
+zemun_kiklop = [{'hrana': 'Gyros 700g' ,            'cena': 800 , 'koeficijent': 0.9, 'tags': ['meat','big', 'tortilla','grilled']},
+                {'hrana': 'Kiklop hamburger 300g' , 'cena': 590 , 'koeficijent': 0.4, 'tags': ['meat', 'flatbread', 'low','grilled']},
+                {'hrana': 'Kebab rolls 225g' ,      'cena': 550, 'koeficijent': 0.3, 'tags': ['meat', 'kebab', 'bun', 'low','grilled']},
+                {'hrana': 'Pancakes' ,              'cena': 390 , 'koeficijent': 0.2, 'tags': ['sweet', 'eurocrem', 'bananas', 'medium']}
                 ]
 ############# NOVI BEOGRAD ###############
-novi_bg_food_fact = [{'hrana': 'Smoked sausage 200g' ,        'cena': 300 , 'koeficijent': 0.9, 'tags': ['meat', 'smoked','low','bun']},
-                     {'hrana': 'Leskovac burger 300g' ,       'cena': 350 , 'koeficijent': 1, 'tags': ['meat','low','bun','grilled']},
-                     {'hrana': 'Toasted sesame white 300g' ,  'cena': 350, 'koeficijent': 1.1, 'tags': ['sesam','meat','flatbread','medium']},
-                     {'hrana': 'Sirloin sandwich' ,           'cena': 170 , 'koeficijent': 0.8, 'tags': ['sandwich', 'low','meat', 'vegetable']}
+novi_bg_food_fact = [{'hrana': 'Smoked sausage 200g' ,        'cena': 300 , 'koeficijent': 0.3, 'tags': ['meat', 'smoked','low','bun']},
+                     {'hrana': 'Leskovac burger 300g' ,       'cena': 350 , 'koeficijent': 0.1, 'tags': ['meat','low','bun','grilled']},
+                     {'hrana': 'Toasted sesame white 300g' ,  'cena': 350, 'koeficijent': 0.1, 'tags': ['sesam','meat','flatbread','medium']},
+                     {'hrana': 'Sirloin sandwich' ,           'cena': 170 , 'koeficijent': 0.2, 'tags': ['sandwich', 'low','meat', 'vegetable']}
                      ]
 ############# VRACAR ###############
-vracar_mara = [{'hrana': 'Omelette Mara',                       'cena': 500, 'koeficijent': 1.2, 'tags': ['eggs', 'vegetable', 'big']},
-                     {'hrana': 'Tortilla stuffed shish kebab',  'cena': 430, 'koeficijent': 1.5, 'tags': ['meat', 'tortilla','kebab','medium','bacon','grilled']},
-                     {'hrana': 'Vegetarian tortilla' ,          'cena': 310, 'koeficijent': 1.5, 'tags': ['vegetable','tortilla','medium',]},
-                     {'hrana': 'Salad with chicken' ,           'cena': 440 , 'koeficijent': 1.3, 'tags': ['meat', 'vegetable','flatbread','smoked','big']}
+vracar_mara = [{'hrana': 'Omelette Mara',                       'cena': 500, 'koeficijent': 0.2, 'tags': ['eggs', 'vegetable', 'big']},
+                     {'hrana': 'Tortilla stuffed shish kebab',  'cena': 430, 'koeficijent': 0.5, 'tags': ['meat', 'tortilla','kebab','medium','bacon','grilled']},
+                     {'hrana': 'Vegetarian tortilla' ,          'cena': 310, 'koeficijent': 0.5, 'tags': ['vegetable','tortilla','medium',]},
+                     {'hrana': 'Salad with chicken' ,           'cena': 440 , 'koeficijent': 0.3, 'tags': ['meat', 'vegetable','flatbread','smoked','big']}
             ]
 ############# ZVEZDARA ###############
-zvezdara_gusar = [{'hrana': 'Gourmet hamburger 280g', 'cena': 350, 'koeficijent': 1.2, 'tags':['meat', 'bun', 'low']},
-                     {'hrana': 'White Hanger 200g',   'cena': 300, 'koeficijent': 1.2, 'tags': ['meat','low']},
-                     {'hrana': 'Kinder pancakes' ,    'cena': 250, 'koeficijent': 0.9, 'tags': ['sweet','kinder','vanilla','eurocrem','medium']},
-                     {'hrana': 'Pancake Pirate' ,     'cena': 300 , 'koeficijent': 1, 'tags': ['sweet','nutella','bananas']}
+zvezdara_gusar = [{'hrana': 'Gourmet hamburger 280g', 'cena': 350, 'koeficijent': 0.2, 'tags':['meat', 'bun', 'low']},
+                     {'hrana': 'White Hanger 200g',   'cena': 300, 'koeficijent': 0.2, 'tags': ['meat','low']},
+                     {'hrana': 'Kinder pancakes' ,    'cena': 250, 'koeficijent': 0.4, 'tags': ['sweet','kinder','vanilla','eurocrem','medium']},
+                     {'hrana': 'Pancake Pirate' ,     'cena': 300 , 'koeficijent': 0.1, 'tags': ['sweet','nutella','bananas']}
                 ]
 ############# VOZDOVAC ###############
-vozdovac_vajat = [{'hrana': 'Vienna schnitzel 200g',  'cena': 300, 'koeficijent': 1.7, 'tags': ['meat', 'schnitzel','bun','medium','kajmak']},
-                     {'hrana': 'Bun with cream 220g', 'cena': 150, 'koeficijent': 0.5, 'tags': ['kajmak','bun','low']},
+vozdovac_vajat = [{'hrana': 'Vienna schnitzel 200g',  'cena': 300, 'koeficijent': 0.7, 'tags': ['meat', 'schnitzel','bun','medium','kajmak']},
+                     {'hrana': 'Bun with cream 220g', 'cena': 150, 'koeficijent': 0.1, 'tags': ['kajmak','bun','low']},
                      {'hrana': 'French fries 200g',  'cena': 180, 'koeficijent': 0.6, 'tags': ['french fries','toasted']},
-                     {'hrana': 'sweet pies',          'cena': 400, 'koeficijent': 1.3, 'tags': ['sweet','vanilla','pies', 'big']}
+                     {'hrana': 'sweet pies',          'cena': 400, 'koeficijent': 0.3, 'tags': ['sweet','vanilla','pies', 'big']}
                 ]
 ############# GROCKA ###############
 grocka_panter = [{'hrana': 'Bacon in a flatbread 150g', 'cena': 330, 'koeficijent': 1.1, 'tags': ['meat', 'bacon','flatbread','low']},
@@ -116,7 +116,7 @@ class Character():
         self.irritability = irritability
         self.color = color
         self.money = 0
-        
+
     def char_creation(self):
         stats = Table.grid(padding=1)
         stats.add_column(style=f'{self.color}', justify='left')
@@ -161,7 +161,7 @@ class Character():
 
 #Intro screen, first thing you see when you start the game
 def intro():
-    loading_screen_before_intro()
+    #loading_screen_before_intro()
     string = """
 Welcome to the game of Hunger & Satisfaction
             """
@@ -182,24 +182,6 @@ Your job is to satisfy needs of different people. Choose and play accordingly
     print(intro)
     input()
     main_menu()
-# goal_progress = Progress(
-#                     "{task.description}",
-#                     TextColumn("{task.percentage:>3.0f}%"),
-#                     BarColumn(),
-#                             )
-
-#     sat_task = goal_progress.add_task('Satisfaction',total=100)
-#     hung_task = goal_progress.add_task('Hungriness',total=100)
-
-#     goal_table = Table.grid(expand = True)
-#     goal_table.add_row(Panel.fit(
-#                             goal_progress,
-#                             title = "Goal Progress",
-#                             border_style = 'medium_purple4',
-#                             padding = (2,2)
-#                             #highlight = "Progress",
-#                                 ),
-#                         )
 def loading_screen_before_intro():
     layout.split(
             Layout(name='middle'))
@@ -214,10 +196,6 @@ def loading_screen_before_intro():
     loading_actions = ['Loading Character...', 'Assets...', 'Weather...', 'Maps and Layouts...']
     loading_size = [100,100,100,100]
     loading_time = [0.001, 0.03, 0.002, 0.01]
-    #char_loading = loading_progress.add_task("[red]Loading Characters...", total=50, visible=vis1)
-    #assets_loading = loading_progress.add_task("[red]Assets...", total=50,visible=vis2)
-    #weather_loading = loading_progress.add_task("[red]Weather...", total=50,visible=vis3)
-    #maps_loading = loading_progress.add_task("[red]Maps and layouts...", total=50,visible=vis4)
 
     loading_table = Table(expand=True, box= None )
     loading_table.add_row(Panel(
