@@ -8,7 +8,7 @@
 # k = input('ime hrane: ')
 # for i in zemun_kiklop:
 #     if k in i['hrana']:
-#         print(i['cena'])
+# ##        print(i['cena'])  
 #
 
 
