@@ -34,12 +34,11 @@ layout = Layout()
 #Hunger & Satisfaction
 #python -m rich.live
 ############# CHARACTER PREFRENCE ###########################################33
-BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "palačinka", "irritability": "low"}
-MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high"}
-TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan salads", "irritability": "high"}
-VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information"}
-ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low"}
-
+BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "palačinka", "irritability": "low", 'color': 'bright_blue'}
+MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high", 'color': 'bright_yellow'}
+TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan salads", "irritability": "high", 'color': 'bright_magenta'}
+VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information", 'color': 'bright_black'}
+ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low", 'color': 'bright_green'}
 
 
 
@@ -109,26 +108,18 @@ dict_of_shops = {'Zemun': zemun_kiklop,
 
 
 class Character():
-    def __init__(self, name, fit, sweets, fav_food, irritability):
+    def __init__(self, name, fit, sweets, fav_food, irritability, color):
         self.name = name
         self.fit = fit
         self.sweets = sweets
         self.fav_food = fav_food
         self.irritability = irritability
+        self.color = color
         self.money = 0
+        
     def char_creation(self):
-        if self.name == "Bogdan":
-            style = "bright_blue"
-        elif self.name =='Marko':
-            style = 'bright_yellow'
-        elif self.name == "Teodora":
-            style = 'bright_magenta'
-        elif self.name == 'Veljko':
-            style = 'bright_black'
-        elif self.name == 'Ana':
-            style = 'bright_green'
         stats = Table.grid(padding=1)
-        stats.add_column(style=f'{style}', justify='left')
+        stats.add_column(style=f'{self.color}', justify='left')
         stats.add_row(f"Fitness: {self.fit}")
         stats.add_row(f"Sweets: {self.sweets}")
         stats.add_row(f"Favorite food: {self.fav_food}")
@@ -137,7 +128,7 @@ class Character():
         stats_panel = Panel(
                         Align.left(
                             Group(Align.left(stats)),
-                                ), box=box.ROUNDED, title=f"{self.name}", border_style=f"{style}"
+                                ), box=box.ROUNDED, title=f"{self.name}", border_style=f"{self.color}"
                             )
         return stats_panel
 
@@ -152,18 +143,8 @@ class Character():
         return self.money
 
     def status_layout(self):
-        if self.name == "Bogdan":
-            style = "bright_blue"
-        elif self.name =='Marko':
-            style = 'bright_yellow'
-        elif self.name == "Teodora":
-            style = 'bright_magenta'
-        elif self.name == 'Veljko':
-            style = 'bright_black'
-        elif self.name == 'Ana':
-            style = 'bright_green'
         stats = Table.grid(padding=1)
-        stats.add_column(style=f'{style}', justify='left')
+        stats.add_column(style=f'{self.color}', justify='left')
         stats.add_row(f"Fitness: {self.fit}")
         stats.add_row(f"Sweets: {self.sweets}")
         stats.add_row(f"Favorite food: {self.fav_food}")
@@ -172,7 +153,7 @@ class Character():
         stats_panel = Panel(
                         Align.left(
                             Group(Align.left(stats)),
-                                ), box=box.ROUNDED, title=f"{self.name}", border_style=f"{style}"
+                                ), box=box.ROUNDED, title=f"{self.name}", border_style=f"{self.color}"
                             )
         return stats_panel
 ##############################################################################33
@@ -281,11 +262,11 @@ def main_menu():
 #Screen wherer you choose your character, shows stats of everyone it does it based on a class
 ############################  CHOOSING CHARACTER LAYOUT   #####################3333333
 def choosing_char(dif):
-    Bogdan = Character("Bogdan",BOGDAN['fitness'], BOGDAN['sweets'],BOGDAN['favorite_food'], BOGDAN['irritability'])
-    Marko = Character("Marko",MARKO['fitness'], MARKO['sweets'],MARKO['favorite_food'], MARKO['irritability'])
-    Teodora = Character("Teodora",TEODORA['fitness'], TEODORA['sweets'],TEODORA['favorite_food'], TEODORA['irritability'])
-    Veljko = Character("Veljko",VELJKO['fitness'], VELJKO['sweets'],VELJKO['favorite_food'], VELJKO['irritability'])
-    Ana = Character("Ana",ANA['fitness'], ANA['sweets'],ANA['favorite_food'], ANA['irritability'])
+    Bogdan = Character("Bogdan",BOGDAN['fitness'], BOGDAN['sweets'],BOGDAN['favorite_food'], BOGDAN['irritability'],BOGDAN['color'])
+    Marko = Character("Marko",MARKO['fitness'], MARKO['sweets'],MARKO['favorite_food'], MARKO['irritability'], MARKO['color'])
+    Teodora = Character("Teodora",TEODORA['fitness'], TEODORA['sweets'],TEODORA['favorite_food'], TEODORA['irritability'], TEODORA['color'])
+    Veljko = Character("Veljko",VELJKO['fitness'], VELJKO['sweets'],VELJKO['favorite_food'], VELJKO['irritability'], VELJKO['color'])
+    Ana = Character("Ana",ANA['fitness'], ANA['sweets'],ANA['favorite_food'], ANA['irritability'], ANA['color'])
     _names = [Bogdan, Marko, Teodora, Veljko, Ana]
 
     space_creation()
