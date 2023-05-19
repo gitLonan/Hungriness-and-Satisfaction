@@ -111,28 +111,30 @@ def shop_menu(layout_map ,shop, name, money, place):
         if buy not in choices:
             continue
         elif buy in choices:
-            hung.append(shop[int(buy)-1]['koeficijent'])
+           
             #gets the name of the char and their tags
             if currently_spent + shop[int(buy)-1]['cena'] <= money:
-                 currently_spent  += shop[int(buy)-1]['cena']
+                hung.append(shop[int(buy)-1]['koeficijent'])
+                currently_spent  += shop[int(buy)-1]['cena']
             index = int(char_tags_strings.index(char_name))
             for i in char_tags_value[index]:
                     #print('tagovi',i)
                     for j in char_tags_value[index][i]:
                         #print('tagovi',j)
                         #print('1',shop[int(buy)-1]['cena'],j)
-                        if j in shop[int(buy)-1]['tags']:
-                            #print('2',shop[int(buy)-1]['cena'],char_tags_value[index][i][j])
-                                    #print('3',shop[int(buy)-1]['cena'],j,shop[int(buy)-1]['tags'],shop[int(buy)-1]['koeficijent'])
-                                    
-                                    hung_tag.append(char_tags_value[index][i][j])
-                                    #print('asdasd',hung, hung_tag,currently_spent)
-                                    
-                                    continue
+                        if currently_spent + shop[int(buy)-1]['cena'] <= money:
+                                if j in shop[int(buy)-1]['tags']:
+                                #print('2',shop[int(buy)-1]['cena'],char_tags_value[index][i][j])
+                                        #print('3',shop[int(buy)-1]['cena'],j,shop[int(buy)-1]['tags'],shop[int(buy)-1]['koeficijent'])
+                                        
+                                        hung_tag.append(char_tags_value[index][i][j])
+                                        #print('asdasd',hung, hung_tag,currently_spent)
+                                        
+                                        continue
             print(layout_map)
             if currently_spent + shop[int(buy)-1]['cena'] > money:
                 print('[bold yellow]You dont have enough money for that')
-            print('[bold red]You currently spent:[/bold red] ',currently_spent, money)
+            print('[bold red]You currently spent:[/bold red] ',currently_spent)
     
     
     return 
