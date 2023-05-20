@@ -47,8 +47,8 @@ place = '' #This is used in main(), more explaination down there
 
 
 #they are needed to score the in the game and are called in adding_goal_progress() line 439
-hungriness_points = 0
-satisfaction_points = 0
+# hungriness_points = 0
+# satisfaction_points = 0
 
 difficulty = {'Hard': 1100, 'Normal':1900, 'Easy': 2700} #1100,1900,2700
 dif = 'Normal' #sets difficulty in func choosing_difficulty, because if you dont choose its set to Normal
@@ -117,6 +117,10 @@ class Character():
         self.irritability = irritability
         self.color = color
         self.money = 0
+        self.hungriness = 0
+        self.satisfaction = 0
+        self.inTotalHungriness = 0
+        self.inTotalSatisfaction = 0
 
     def char_creation(self):
         stats = Table.grid(padding=1)
@@ -249,12 +253,34 @@ def exit_func():
         Thanks for playing this game.If you have any feed back please let me know.
                                      
             """
+    string2 = """
+
+  ▄████  ▒█████   ▒█████  ▓█████▄     ▄▄▄▄    █    ██▓██   ██▓
+ ██▒ ▀█▒▒██▒  ██▒▒██▒  ██▒▒██▀ ██▌   ▓█████▄  ██  ▓██▒▒██  ██▒
+▒██░▄▄▄░▒██░  ██▒▒██░  ██▒░██   █▌   ▒██▒ ▄██▓██  ▒██░ ▒██ ██░
+░▓█  ██▓▒██   ██░▒██   ██░░▓█▄   ▌   ▒██░█▀  ▓▓█  ░██░ ░ ▐██▓░
+░▒▓███▀▒░ ████▓▒░░ ████▓▒░░▒████▓    ░▓█  ▀█▓▒▒█████▓  ░ ██▒▓░
+ ░▒   ▒ ░ ▒░▒░▒░ ░ ▒░▒░▒░  ▒▒▓  ▒    ░▒▓███▀▒░▒▓▒ ▒ ▒   ██▒▒▒ 
+  ░   ░   ░ ▒ ▒░   ░ ▒ ▒░  ░ ▒  ▒    ▒░▒   ░ ░░▒░ ░ ░ ▓██ ░▒░ 
+░ ░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒   ░ ░  ░     ░    ░  ░░░ ░ ░ ▒ ▒ ░░  
+      ░     ░ ░      ░ ░     ░        ░         ░     ░ ░     
+                           ░               ░          ░ ░     
+
+                """
     exit_screen_down = Align.center(Panel.fit(f"[bold yellow]{string}",
                                     title=" Hunger & Satisfaction ",
-                                    subtitle="Created by MujoHarac"),
-                                     vertical="middle")
-    
+                                    subtitle="Created by MujoHarac",
+                                            ),
+                                    
+                                    )
+    exit_screen_up = Align.center(Panel(f"[bold yellow]{string2}",
+                                        title=" Hunger & Satisfaction ",
+                                        subtitle="Created by MujoHarac",
+                                        
+                                        )
+                                )
     exit_screen_layout['down'].update(exit_screen_down)
+    exit_screen_layout['upper'].update(exit_screen_up)
     print(exit_screen_layout)
     input()
     sys.exit()
@@ -632,6 +658,8 @@ def weather_setter():
 #################################################################################3###########3
 ##########################################################################3#######################
 def end_game_screen(name,dif):
+    hungriness_points = name.inTotalHungriness
+    satisfaction_points = name.inTotalSatisfaction
     space_creation()
     space_creation()
     end_screen_layout = Layout()
@@ -659,6 +687,7 @@ This are the end result with the [bold red]{name.name}[/bold red]
                                     subtitle="Created by MujoHarac"),
                                     vertical="middle")
     end_screen_layout['down'].update(end_screen_down)
+    print(hungriness_points)
     print(end_screen_layout)
     input()
     p = Prompt.ask("[bold red]Do you want to save this the end result[/bold red]?[cyan]y/n[/cyan]")
@@ -667,8 +696,9 @@ This are the end result with the [bold red]{name.name}[/bold red]
         dic = {'person played': player,
             'name': name.name,
            'difficulty': dif,
-           'hungriness': hungriness_points,
-           'satisfaction': satisfaction_points}
+           'hungriness': round(hungriness_points,2),
+           'satisfaction': round(satisfaction_points,2)}
+        print(hungriness_points)
         game_saving(dic)
         sys.exit()
     elif p == 'n':
@@ -684,16 +714,21 @@ def game_saving(dic, filename ='score_board.json'):
 
 
 #called in main_game_screen on 590line
-def adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table):
+def adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table, name):
     #sat_task,hung_task, goal_progress,layout_map
     #Here im updating Panel for the goals of the game
     lista = [sat_task, hung_task]
-    goal_list = [satisfaction_points, hungriness_points]
-    if hungriness_points > 0 or satisfaction_points > 0:
+    goal_list = [name.satisfaction, name.hungriness]
+    print(goal_list)
+    if name.hungriness > 0 or name.satisfaction > 0:
         for i,j in enumerate(lista):
             goal_progress.update(i, advance=goal_list[i])
             goal=0
         layout_map["goal_box"].update(goal_table)
+    name.inTotalHungriness += name.hungriness
+    name.inTotalSatisfaction += name.satisfaction
+    name.hungriness = 0
+    name.satisfaction = 0
     ##print(layout_map)
 
 
@@ -718,20 +753,24 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
 #from a file maps_layout and depending on the place you visit the yellow * acts as a pointer
 #where you are currently
     global place
-    global hungriness_points
     town_layout(layout_map, place)
     choices=['Zemun', 'Vracar', 'Novi Beograd', 'Zvezdara', 'Grocka', 'Vozdovac']
     money = name.money
+    hungriness_points = name.hungriness
+    satisfaction_points = name.satisfaction
+
     while True:
+        
         place = Prompt.ask("[bright_yellow]Choose the place you want to visit?")
+        
         if place == 'back':
-            p = Prompt.ask("Are you sure you want to go back to Character screen?[cyan]y/n[/cyan]")
+            p = Prompt.ask("[bold red]Are you sure you want to go back to Character screen?[/][cyan]y/n[/cyan]")
             if p == 'y':
                 choosing_char(dif)
             else:
                 continue
         elif place == 'end':
-            p = Prompt.ask("Are you sure you want to end the session?[cyan]y/n[/cyan]")
+            p = Prompt.ask("[bold red]Are you sure you want to end the session?[/][cyan]y/n[/cyan]")
             if p == 'y':
                 end_game_screen(name,dif)
                 break
@@ -742,21 +781,14 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
         elif place in choices:
             shop = dict_of_shops[f'{place}']
             dict_places_in_town_layout[f'{place}'](layout_map, place)
-            hungriness_points, spent = shop_menu(layout_map, shop, name,money,place)
-            print(hungriness_points)
+            hung, spent = shop_menu(layout_map, shop, name,money,place)
+            name.hungriness += hung
+            print('OVO GLEDAM',name.hungriness,hung)
             name.money -= spent
             layout_map['stats_box'].update(name.status_layout())
             print(layout_map)
-            adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table)
+            adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table, name)
             main(layout_map,goal_progress, sat_task, hung_task, goal_table,name,dif)
 
-        
-
-
-
-
-
-
-
-
+      
 intro()
