@@ -40,5 +40,33 @@
         "difficulty": "Easy",
         "hungriness": 37.0,
         "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Ana",
+        "difficulty": "Normal",
+        "hungriness": 21.0,
+        "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Teodora",
+        "difficulty": "Normal",
+        "hungriness": 55.0,
+        "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Teodora",
+        "difficulty": "Normal",
+        "hungriness": 60.00000000000001,
+        "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Ana",
+        "difficulty": "Normal",
+        "hungriness": 37.0,
+        "satisfaction": 0
     }
 ]
