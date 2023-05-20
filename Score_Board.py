@@ -7,6 +7,8 @@ from rich import box
 import json
 
 def score_board():
+    #summary: create Layout, than create Tables, to be able to have more controle of the said Tables, we put them in to Panels
+    #which we will than update the said Layout with thoes Panels and than we just print the layout.
     score_layout = Layout()
     score_layout.split_row( Layout(name='Easy'),
                  Layout(name='Normal'),
@@ -23,18 +25,18 @@ def score_board():
                 score_easy.append(entry)
             elif entry['difficulty'] == 'Hard':
                 score_hard.append(entry)
-    score_normal_table = Table(title='Score for Normal', title_justify='center', box = box.SIMPLE,)
-    score_easy_table = Table(title= 'Score for Easy',expand= True,title_justify='center',box = box.SIMPLE)
-    score_hard_table = Table(title='Score for Hard', expand= True,title_justify='center',box = box.SIMPLE)
+    score_easy_table = Table(title= 'Score for Easy',    title_justify='center',box = box.SIMPLE, title_style='chartreuse3', border_style='sea_green2',header_style='grey23')
+    score_normal_table = Table(title='Score for Normal', title_justify='center',box = box.SIMPLE, title_style='yellow3', border_style='khaki3',header_style='grey23')
+    score_hard_table = Table(title='Score for Hard',     title_justify='center',box = box.SIMPLE, title_style='deep_pink2', border_style='magenta2',header_style='grey23')
 
     #table_panel = Align.center(Panel.fit(table, style="dark_olive_green3"))
 
 
-    score_normal_table.add_column(header='Player')
-    score_normal_table.add_column(header='Character name', justify='left')
-    score_normal_table.add_column(header='difficulty', justify='center')
-    score_normal_table.add_column(header='hungriness', justify='right')
-    score_normal_table.add_column(header='satisfaction', justify='right')
+    score_normal_table.add_column(header='Player', style='khaki3')
+    score_normal_table.add_column(header='Character name',style='khaki3')
+    score_normal_table.add_column(header='difficulty', style='khaki3')
+    score_normal_table.add_column(header='hungriness', style='khaki3')
+    score_normal_table.add_column(header='satisfaction', style='khaki3')
     
 
     for num,row in enumerate(score_normal):
@@ -46,11 +48,11 @@ def score_board():
     normal_table_Panel = Align.center(Panel(score_normal_table))
 
 
-    score_easy_table.add_column(header='Player')
-    score_easy_table.add_column(header='Character name', justify='left')
-    score_easy_table.add_column(header='difficulty', justify='center')
-    score_easy_table.add_column(header='hungriness', justify='right')
-    score_easy_table.add_column(header='satisfaction', justify='right')
+    score_easy_table.add_column(header='Player', style='sea_green2')
+    score_easy_table.add_column(header='Character name', style='sea_green2')
+    score_easy_table.add_column(header='difficulty', style='sea_green2')
+    score_easy_table.add_column(header='hungriness', style='sea_green2')
+    score_easy_table.add_column(header='satisfaction', style='sea_green2')
 
     for num,row in enumerate(score_easy):
         for j,k in enumerate(row):
@@ -61,11 +63,11 @@ def score_board():
     easy_table_Panel = Align.center(Panel(score_easy_table))
 
 
-    score_hard_table.add_column(header='Player')
-    score_hard_table.add_column(header='Character name', justify='left')
-    score_hard_table.add_column(header='difficulty', justify='center')
-    score_hard_table.add_column(header='hungriness', justify='right')
-    score_hard_table.add_column(header='satisfaction', justify='right')
+    score_hard_table.add_column(header='Player',style='magenta2')
+    score_hard_table.add_column(header='Character name',style='magenta2')
+    score_hard_table.add_column(header='difficulty',style='magenta2')
+    score_hard_table.add_column(header='hungriness',style='magenta2')
+    score_hard_table.add_column(header='satisfaction', style='magenta2')
 
     for num,row in enumerate(score_hard):
         for j,k in enumerate(row):
