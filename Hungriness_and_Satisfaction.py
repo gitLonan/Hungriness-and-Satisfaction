@@ -202,7 +202,6 @@ def loading_screen_before_intro():
     loading_table.add_row(Panel(
                                     loading_progress,
                                     style= 'black',
-                                    
                                     padding = (15,10),
                                     expand= True,
                                     
@@ -238,9 +237,27 @@ def main_menu():
         elif state == "3":
             score_board()
         elif state == "4":
-            sys.exit("Thank you for playing the game")
+            exit_func()
+            
         main_menu()
-
+def exit_func():
+    exit_screen_layout = Layout()
+    exit_screen_layout.split_column(
+                            Layout(name='upper'),
+                            Layout(name='down'),)
+    string = """
+        Thanks for playing this game.If you have any feed back please let me know.
+                                     
+            """
+    exit_screen_down = Align.center(Panel.fit(f"[bold yellow]{string}",
+                                    title=" Hunger & Satisfaction ",
+                                    subtitle="Created by MujoHarac"),
+                                     vertical="middle")
+    
+    exit_screen_layout['down'].update(exit_screen_down)
+    print(exit_screen_layout)
+    input()
+    sys.exit()
 
 
 #Screen wherer you choose your character, shows stats of everyone it does it based on a class
