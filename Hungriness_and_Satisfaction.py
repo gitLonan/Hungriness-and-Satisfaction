@@ -41,6 +41,10 @@ TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan sala
 VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information", 'color': 'bright_black'}
 ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low", 'color': 'bright_green'}
 
+distance_between_places = (((,),)
+                            ((,),)
+                            ((,),)
+                            )
 
 
 place = '' #This is used in main(), more explaination down there
