@@ -111,11 +111,14 @@ def shop_menu(layout_map ,shop, name, money, place):
         if buy not in choices:
             continue
         elif buy in choices:
-           
             #gets the name of the char and their tags
             if currently_spent + shop[int(buy)-1]['cena'] <= money:
                 hung.append(shop[int(buy)-1]['koeficijent'])
                 currently_spent  += shop[int(buy)-1]['cena']
+                print(layout_map)
+            else:
+                 print(layout_map)
+                 print('[bold yellow]You dont have enough money for that')
             index = int(char_tags_strings.index(char_name))
             for i in char_tags_value[index]:
                     #print('tagovi',i)
@@ -129,11 +132,8 @@ def shop_menu(layout_map ,shop, name, money, place):
                                         
                                         hung_tag.append(char_tags_value[index][i][j])
                                         #print('asdasd',hung, hung_tag,currently_spent)
-                                        
                                         continue
-            print(layout_map)
-            if currently_spent + shop[int(buy)-1]['cena'] > money:
-                print('[bold yellow]You dont have enough money for that')
+            
             print('[bold red]You currently spent:[/bold red] ',currently_spent)
     
     
