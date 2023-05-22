@@ -41,10 +41,24 @@ TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan sala
 VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information", 'color': 'bright_black'}
 ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low", 'color': 'bright_green'}
 
-distance_between_places = (((,),)
-                            ((,),)
-                            ((,),)
+
+#main roud is the big middle line spaning from start_1 to start_2, look it in maps_layout
+distance_between_places_using_main_roud = (
+                            (('start_1','roud'), 100),
+                            (('start_2','roud'), 50),
+                            (('Zemun','roud'), 200),
+                            (('Vracar','roud'), 150),
+                            (('Novi Beograd', 'roud'), 300),
+                            (('Zvezdara','roud'), 350),
+                            (('Vozdovac','roud'), 450),
+                            (('Grocka','roud'), 200),
                             )
+
+distance_between_places_that_are_connected = (
+                            (('Vracar','Zvezdara'), 200),
+                            (('Zemun','Novi Beograd'), 50),
+
+                                            )
 
 
 place = '' #This is used in main(), more explaination down there
@@ -772,6 +786,7 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
             if p == 'y':
                 choosing_char(dif)
             else:
+                print(layout_map)
                 continue
         elif place == 'end':
             p = Prompt.ask("[bold red]Are you sure you want to end the session?[/][cyan]y/n[/cyan]")
@@ -779,6 +794,7 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
                 end_game_screen(name,dif)
                 break
             else:
+                print(layout_map)
                 continue
         elif place not in choices:
             continue
