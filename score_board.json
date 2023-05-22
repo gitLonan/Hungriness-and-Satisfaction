@@ -68,5 +68,12 @@
         "difficulty": "Normal",
         "hungriness": 37.0,
         "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Veljko",
+        "difficulty": "Easy",
+        "hungriness": 69.5,
+        "satisfaction": 0
     }
 ]
