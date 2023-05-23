@@ -1,3 +1,4 @@
+import random
 # zemun_kiklop = [{'hrana': 'Gyros 700g' , 'cena': 800 , 'koeficijent': 1.9},
 #                 {'hrana': 'Kiklop hamburger 300g' , 'cena': 590 , 'koeficijent': 1.4},
 #                 {'hrana': 'Kebab rolls 225g' , 'cena': 550, 'koeficijent': 1.3},
@@ -12,8 +13,8 @@
 #
 
 
-# tags = {'broad': {'meat': (1,2), 'vegetable': (2, 1), 'sweet': (3,1), 'sandwich':(4,1)},
-#         'specific': {'eggs': (4,1), 'bun': (5,1)}}
+tags = {'broad': {'meat': (1,2), 'vegetable': (2, 1), 'sweet': (3,1), 'sandwich':(4,1)},
+         'specific': {'eggs': (4,1), 'bun': (5,1)}}
 
 # #print(tags['broad'])
 # for i in tags:
@@ -47,3 +48,5 @@ distance_between_places_that_are_connected = (
 
 for i in distance_between_places_that_are_connected:
     print(i[0])
+
+print(random.choice(tags['broad']['meat']))
