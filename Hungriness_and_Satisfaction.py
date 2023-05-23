@@ -35,11 +35,11 @@ layout = Layout()
 #Hunger & Satisfaction
 #python -m rich.live
 ############# CHARACTER PREFRENCE ###########################################33
-BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "palačinka", "irritability": "low", 'color': 'bright_blue'}
-MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high", 'color': 'bright_yellow'}
-TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan salads", "irritability": "high", 'color': 'bright_magenta'}
-VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information", 'color': 'bright_black'}
-ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low", 'color': 'bright_green'}
+BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "palačinka", "irritability": "low", 'color': 'bright_blue','irritability_coefficient': 0.1}
+MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high", 'color': 'bright_yellow','irritability_coefficient': 0.4}
+TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan salads", "irritability": "high", 'color': 'bright_magenta','irritability_coefficient': 0.35}
+VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information", 'color': 'bright_black','irritability_coefficient': 0.25}
+ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low", 'color': 'bright_green','irritability_coefficient': 0.15}
 
 
 #main roud is the big middle line spaning from start_1 to start_2, look it in maps_layout
@@ -57,7 +57,6 @@ distance_between_places_using_main_roud = (
 distance_between_places_that_are_connected = (
                             (('Vracar','Zvezdara'), 200),
                             (('Zemun','Novi Beograd'), 50),
-
                                             )
 
 
@@ -307,11 +306,11 @@ def exit_func():
 #Screen wherer you choose your character, shows stats of everyone it does it based on a class
 ############################  CHOOSING CHARACTER LAYOUT   #####################3333333
 def choosing_char(dif):
-    Bogdan = Character("Bogdan",BOGDAN['fitness'], BOGDAN['sweets'],BOGDAN['favorite_food'], BOGDAN['irritability'],BOGDAN['color'])
-    Marko = Character("Marko",MARKO['fitness'], MARKO['sweets'],MARKO['favorite_food'], MARKO['irritability'], MARKO['color'])
-    Teodora = Character("Teodora",TEODORA['fitness'], TEODORA['sweets'],TEODORA['favorite_food'], TEODORA['irritability'], TEODORA['color'])
-    Veljko = Character("Veljko",VELJKO['fitness'], VELJKO['sweets'],VELJKO['favorite_food'], VELJKO['irritability'], VELJKO['color'])
-    Ana = Character("Ana",ANA['fitness'], ANA['sweets'],ANA['favorite_food'], ANA['irritability'], ANA['color'])
+    Bogdan = Character("Bogdan",BOGDAN['fitness'], BOGDAN['sweets'],BOGDAN['favorite_food'], BOGDAN['irritability_coefficient'],BOGDAN['color'])
+    Marko = Character("Marko",MARKO['fitness'], MARKO['sweets'],MARKO['favorite_food'], MARKO['irritability_coefficient'], MARKO['color'])
+    Teodora = Character("Teodora",TEODORA['fitness'], TEODORA['sweets'],TEODORA['favorite_food'], TEODORA['irritability_coefficient'], TEODORA['color'])
+    Veljko = Character("Veljko",VELJKO['fitness'], VELJKO['sweets'],VELJKO['favorite_food'], VELJKO['irritability_coefficient'], VELJKO['color'])
+    Ana = Character("Ana",ANA['fitness'], ANA['sweets'],ANA['favorite_food'], ANA['irritability_coefficient'], ANA['color'])
     _names = [Bogdan, Marko, Teodora, Veljko, Ana]
 
     space_creation()
@@ -509,6 +508,7 @@ def town_layout(layout_map,place):
     main_panel = Panel.fit(map, title = f"{town_names['town']}",box = box.ROUNDED)
     layout_map['right'].update(main_panel)
     print(layout_map)
+    
 
 def zemun(layout_map,place):
     #zemun_layout imported from a file
@@ -747,8 +747,32 @@ def adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_tab
     name.inTotalSatisfaction += name.satisfaction
     name.hungriness = 0
     name.satisfaction = 0
-    ##print(layout_map)
+    
 
+def distance_between_places_getter(current_place, next_place):
+    #What is main roud is explaind near the top of the file, in short its the line going straight down
+    distance_to_main_roud = 0
+    distance_from_road_to_place = 0
+    for places_par in distance_between_places_that_are_connected:
+        if current_place in places_par[0] and next_place in places_par[0]:
+            distance = places_par[1]
+            #print('AKO RADI', distance)
+        else: distance = 0
+    if distance == 0:
+        for places_par in distance_between_places_using_main_roud:
+            if current_place in places_par[0]:
+                distance_to_main_roud = places_par[1]
+            if next_place in places_par[0]:
+                distance_from_road_to_place = places_par[1]
+        return distance_to_main_roud + distance_from_road_to_place
+    else:
+        pass 
+    
+def satisfaction_points_calculator(distance, name, dif,):
+    sunny_mod = 1
+    cloudy_mod = 0.9
+    rainy_mod = 0.6
+    snowie_mod = 0.3
 
 
 ###################   MAIN GAME PRINTING SCREEN   #################
@@ -769,18 +793,18 @@ def main_game_screen(name,dif):
 def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
 #place starts with place='' because in function town_layout(code line 413), we have a function that calls
 #from a file maps_layout and depending on the place you visit the yellow * acts as a pointer
-#where you are currently
+#where you are currently     
     global place
     town_layout(layout_map, place)
     choices=['Zemun', 'Vracar', 'Novi Beograd', 'Zvezdara', 'Grocka', 'Vozdovac']
     money = name.money
     hungriness_points = name.hungriness
     satisfaction_points = name.satisfaction
-
+    current_place = place
     while True:
         
         place = Prompt.ask("[bright_yellow]Choose the place you want to visit?")
-        
+        next_place = place
         if place == 'back':
             p = Prompt.ask("[bold red]Are you sure you want to go back to Character screen?[/][cyan]y/n[/cyan]")
             if p == 'y':
@@ -799,16 +823,17 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
         elif place not in choices:
             continue
         elif place in choices:
+            distance_useingFor_satisfaction = distance_between_places_getter(current_place, next_place)
+            satisfaction_points_calculator(distance_useingFor_satisfaction, name, dif)
+            #print('OGO GLEDAM',distance_useingFor_satisfaction)
             shop = dict_of_shops[f'{place}']
             dict_places_in_town_layout[f'{place}'](layout_map, place)
             hung, spent = shop_menu(layout_map, shop, name,money,place)
             name.hungriness += hung
-            print('OVO GLEDAM',name.hungriness,hung)
             name.money -= spent
             layout_map['stats_box'].update(name.status_layout())
             print(layout_map)
             adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table, name)
             main(layout_map,goal_progress, sat_task, hung_task, goal_table,name,dif)
 
-      
 intro()
