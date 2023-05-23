@@ -126,12 +126,13 @@ dict_of_shops = {'Zemun': zemun_kiklop,
 
 
 class Character():
-    def __init__(self, name, fit, sweets, fav_food, irritability, color):
+    def __init__(self, name, fit, sweets, fav_food, irritability, color, irritability_coefficient):
         self.name = name
         self.fit = fit
         self.sweets = sweets
         self.fav_food = fav_food
         self.irritability = irritability
+        self.irritability_coefficient = irritability_coefficient
         self.color = color
         self.money = 0
         self.hungriness = 0
@@ -178,6 +179,16 @@ class Character():
                                 ), box=box.ROUNDED, title=f"{self.name}", border_style=f"{self.color}"
                             )
         return stats_panel
+class Weather(Character):
+    def __init__(self, temp, percipation, humidity, wind):
+        super().__init__(name,irritability_coefficient)    
+        self.temp = temp
+        self.percipation = percipation
+        self.humidity = humidity
+        self.wind = wind
+        self.name = char_name
+        self.irritability_coefficient = irritability_coefficient
+
 ##############################################################################33
 ################################################################################
 
@@ -306,11 +317,11 @@ def exit_func():
 #Screen wherer you choose your character, shows stats of everyone it does it based on a class
 ############################  CHOOSING CHARACTER LAYOUT   #####################3333333
 def choosing_char(dif):
-    Bogdan = Character("Bogdan",BOGDAN['fitness'], BOGDAN['sweets'],BOGDAN['favorite_food'], BOGDAN['irritability_coefficient'],BOGDAN['color'])
-    Marko = Character("Marko",MARKO['fitness'], MARKO['sweets'],MARKO['favorite_food'], MARKO['irritability_coefficient'], MARKO['color'])
-    Teodora = Character("Teodora",TEODORA['fitness'], TEODORA['sweets'],TEODORA['favorite_food'], TEODORA['irritability_coefficient'], TEODORA['color'])
-    Veljko = Character("Veljko",VELJKO['fitness'], VELJKO['sweets'],VELJKO['favorite_food'], VELJKO['irritability_coefficient'], VELJKO['color'])
-    Ana = Character("Ana",ANA['fitness'], ANA['sweets'],ANA['favorite_food'], ANA['irritability_coefficient'], ANA['color'])
+    Bogdan = Character("Bogdan",BOGDAN['fitness'], BOGDAN['sweets'],BOGDAN['favorite_food'], BOGDAN['irritability'],BOGDAN['color'],BOGDAN['irritability_coefficient'])
+    Marko = Character("Marko",MARKO['fitness'], MARKO['sweets'],MARKO['favorite_food'], MARKO['irritability'], MARKO['color'],MARKO['irritability_coefficient'])
+    Teodora = Character("Teodora",TEODORA['fitness'], TEODORA['sweets'],TEODORA['favorite_food'], TEODORA['irritability'], TEODORA['color'], TEODORA['irritability_coefficient'])
+    Veljko = Character("Veljko",VELJKO['fitness'], VELJKO['sweets'],VELJKO['favorite_food'], VELJKO['irritability'], VELJKO['color'],VELJKO['irritability_coefficient'])
+    Ana = Character("Ana",ANA['fitness'], ANA['sweets'],ANA['favorite_food'], ANA['irritability'], ANA['color'], ANA['irritability_coefficient'])
     _names = [Bogdan, Marko, Teodora, Veljko, Ana]
 
     space_creation()
@@ -625,8 +636,10 @@ def upper_main_layout(layout_map):
     table.add_column(justify="center", ratio=5)
     table.add_column(justify="right", ratio=5)
 
-    day, temp = weather_setter()
-    table.add_row(f'Today is {day}', '[bold red]Hunger & Satisfaction[/bold red]', f"{temp}")
+    day, temperature, percipitation, humidity, wind= weather_setter()
+    table.add_row(f'Today is {day}', 
+                    '[bold red]Hunger & Satisfaction[/bold red]',
+                    f'{temperature}°C Precipitation-{percipitation}% Humidity-{humidity}% Wind-{wind} km/h')
     table_panel = Panel(table, style="dark_olive_green3")
     layout_map['upper'].update(table_panel)
 
@@ -647,32 +660,40 @@ You should watch out for rainy days, it can make your character agitated if you 
 def weather_setter():
     #upper_main_layout returns to this func
     #PAZI NA KOEFICIJENTE MNOZENJA, treba i to da napisem
-    day=['sunny', 'cloudy', 'rainy', 'snowie ']
-    sunny = {'sunny' :'15°C Precipitation-50% Humidity-63% Wind-<12 km/h',
-            'sunny1' :'20°C Precipitation-30% Humidity-37% Wind-15 km/h',
-            'sunny2' :'25°C Precipitation-45% Humidity-57% Wind-8 km/h'}
+    day=['sunny', 'cloudy', 'rainy', 'snowie']
+    weather_posibilities = {'sunny':{'Temp': (15,20,25), 'Percipitation':(50,30,45), 'Humidity': (63,37,57), 'Wind':(12,15,8)},
+                          'cloudy':{'Temp': (16,12,8), 'Percipitation':(55,49,44), 'Humidity': (70,90,89), 'Wind':(30,12,26)},
+                          'rainy':{'Temp': (15,10,7), 'Percipitation':(60,73,55), 'Humidity': (63,88,96), 'Wind':(13,17,29)},
+                          'snowie':{'Temp': (3,-5,0), 'Percipitation':(40,68,50), 'Humidity': (63,53,75), 'Wind':(15,24,40)},}
+    
+    # sunny = {'sunny' :'15°C Precipitation-50% Humidity-63% Wind-<12 km/h',
+    #         'sunny1' :'20°C Precipitation-30% Humidity-37% Wind-15 km/h',
+    #         'sunny2' :'25°C Precipitation-45% Humidity-57% Wind-8 km/h'}
 
-    cloudy = {'cloudy': '16°C Precipitation: 55% Humidity-70% Wind-30 km/h',
-            'cloudy1' :'12°C Precipitation-49% Humidity-90% Wind-<12 km/h',
-            'cloudy2' :'8°C Precipitation-44% Humidity-89% Wind-26 km/h'}
+    # cloudy = {'cloudy': '16°C Precipitation: 55% Humidity-70% Wind-30 km/h',
+    #         'cloudy1' :'12°C Precipitation-49% Humidity-90% Wind-<12 km/h',
+    #         'cloudy2' :'8°C Precipitation-44% Humidity-89% Wind-26 km/h'}
 
-    rainy = {'rainy' :'15°C Precipitation-60% Humidity-63% Wind-13 km/h',
-            'rainy1' :'10°C Precipitation-73% Humidity-88% Wind-17 km/h',
-            'rainy2' :'7°C Precipitation-55% Humidity-96% Wind-29 km/h'}
+    # rainy = {'rainy' :'15°C Precipitation-60% Humidity-63% Wind-13 km/h',
+    #         'rainy1' :'10°C Precipitation-73% Humidity-88% Wind-17 km/h',
+    #         'rainy2' :'7°C Precipitation-55% Humidity-96% Wind-29 km/h'}
 
-    snowie = {'snowie': '3°C Precipitation-40% Humidity-63% Wind-15 km/h',
-            'snowie1' :'-5°C Precipitation-68% Humidity-50% Wind-24 km/h',
-            'snowie2' :'0°C Precipitation-50% Humidity-75% Wind-40 km/h'}
-    lista = [sunny, cloudy, rainy, snowie]
-    sunny_mod = 1
-    cloudy_mod = 0.9
-    rainy_mod = 0.6
-    snowie_mod = 0.3
-    set_wether = random.randint(0, len(day)-1)
-    l = list(lista[set_wether].keys())
-    k = random.choice(l)
-    type_day = lista[set_wether]
-    return (day[set_wether], type_day[k])
+    # snowie = {'snowie': '3°C Precipitation-40% Humidity-63% Wind-15 km/h',
+    #         'snowie1' :'-5°C Precipitation-68% Humidity-50% Wind-24 km/h',
+    #         'snowie2' :'0°C Precipitation-50% Humidity-75% Wind-40 km/h'}
+    
+    #weather_posibilities = [sunny, cloudy, rainy, snowie]
+    
+    num_day_weather = random.randint(0, len(day)-1)
+    set_weather = day[num_day_weather]
+    temperature = random.choice(weather_posibilities[f'{set_weather}']['Temp'])
+    percipitation = random.choice(weather_posibilities[f'{set_weather}']['Percipitation'])
+    humidity = random.choice(weather_posibilities[f'{set_weather}']['Humidity'])
+    wind = random.choice(weather_posibilities[f'{set_weather}']['Wind'])
+
+    
+    
+    return (day[num_day_weather], temperature, percipitation, humidity, wind)
 #################################################################################3###########3
 ##########################################################################3#######################
 def end_game_screen(name,dif):
