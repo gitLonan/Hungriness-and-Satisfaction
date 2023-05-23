@@ -39,6 +39,10 @@ def main_city_layout(place=""):
     start_1, start_2 = starting_location(place)
     #style = grey37, s is short for it
     zem, vra, novi, zvez, grock, vozd = indication(place)
+    # lista = [ start_2,start_1]
+    # for i in lista:
+    #     if i == '*':
+    #         start_location = i
     s = 'grey37'
     """        Look of the map without styling, map looks the same with styling
                 just with the syntax it looks disorted
