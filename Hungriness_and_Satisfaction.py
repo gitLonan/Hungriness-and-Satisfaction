@@ -25,15 +25,15 @@ from maps_layout import vracar_layout
 from maps_layout import zvezdara_layout
 from maps_layout import vozdovac_layout
 from maps_layout import grocka_layout
-####  shops  ##########
+####  shop  ##########
 from Belgrade_shops_and_Char_tags import shop_menu
 ### score board import ####
 from Score_Board import score_board 
 console = Console()
 layout = Layout()
-#progress = Progress(auto_refresh=False)
+
 #Hunger & Satisfaction
-#python -m rich.live
+
 ############# CHARACTER PREFRENCE ###########################################33
 BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "pancake", "irritability": "low", 'color': 'bright_blue','irritability_coefficient': 50}
 MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high", 'color': 'bright_yellow','irritability_coefficient': 20}
@@ -269,7 +269,7 @@ class Weather():
 
 #Intro screen, first thing you see when you start the game
 def intro():
-    #loading_screen_before_intro()
+    loading_screen_before_intro()
     string = """
 Welcome to the game of Hunger & Satisfaction
             """
@@ -279,7 +279,7 @@ Welcome to the game of Hunger & Satisfaction
                                      vertical="middle")
     space_creation()
     print(intro)
-    time.sleep(1) #should be 3
+    time.sleep(3) #should be 3
     string = """
 Your job is to satisfy needs of different people. Choose and play accordingly
                           Press Enter to continue
@@ -290,6 +290,7 @@ Your job is to satisfy needs of different people. Choose and play accordingly
     print(intro)
     input()
     main_menu()
+
 def loading_screen_before_intro():
     layout.split(
             Layout(name='middle'))
@@ -301,7 +302,7 @@ def loading_screen_before_intro():
                     SpinnerColumn(spinner_name='dots', style='progress.spinner'),
                             )
     
-    loading_actions = ['Loading Character...', 'Assets...', 'Weather...', 'Maps and Layouts...']
+    loading_actions = ['Loading Characters...', 'Assets...', 'Weather...', 'Maps and Layouts...']
     loading_size = [100,100,100,100]
     loading_time = [0.001, 0.03, 0.002, 0.01]
 
@@ -442,7 +443,7 @@ def description_char_layout():
 There is couple of things you should think about when choosing a character. Their prefrences are very important in
 regards of food you'll be buying and how far are you willing to travel for them, because more distance you
 travers more iritated person becomes.
-When you start a yellow '*' will indicate where are you on the map
+When you start a yellow '*' will indicate where you are on the map
 
             """
 
@@ -736,24 +737,6 @@ def weather_setter():
                           'rainy':{'Temp': (15,10,7), 'Percipitation':(60,73,55), 'Humidity': (63,88,96), 'Wind':(13,17,29)},
                           'snowie':{'Temp': (3,-5,0), 'Percipitation':(40,68,50), 'Humidity': (63,53,75), 'Wind':(15,24,40)},}
     
-    # sunny = {'sunny' :'15°C Precipitation-50% Humidity-63% Wind-<12 km/h',
-    #         'sunny1' :'20°C Precipitation-30% Humidity-37% Wind-15 km/h',
-    #         'sunny2' :'25°C Precipitation-45% Humidity-57% Wind-8 km/h'}
-
-    # cloudy = {'cloudy': '16°C Precipitation: 55% Humidity-70% Wind-30 km/h',
-    #         'cloudy1' :'12°C Precipitation-49% Humidity-90% Wind-<12 km/h',
-    #         'cloudy2' :'8°C Precipitation-44% Humidity-89% Wind-26 km/h'}
-
-    # rainy = {'rainy' :'15°C Precipitation-60% Humidity-63% Wind-13 km/h',
-    #         'rainy1' :'10°C Precipitation-73% Humidity-88% Wind-17 km/h',
-    #         'rainy2' :'7°C Precipitation-55% Humidity-96% Wind-29 km/h'}
-
-    # snowie = {'snowie': '3°C Precipitation-40% Humidity-63% Wind-15 km/h',
-    #         'snowie1' :'-5°C Precipitation-68% Humidity-50% Wind-24 km/h',
-    #         'snowie2' :'0°C Precipitation-50% Humidity-75% Wind-40 km/h'}
-    
-    #weather_posibilities = [sunny, cloudy, rainy, snowie]
-    
     num_day_weather = random.randint(0, len(day)-1)
     set_weather = day[num_day_weather]
     temperature = random.choice(weather_posibilities[f'{set_weather}']['Temp'])
@@ -776,8 +759,8 @@ def end_game_screen(name,dif):
                             Layout(name='upper'),
                             Layout(name='down'),)
     string = """
-        Thanks for playing this game, i hope your character is not hungry and satasfied.
-                        If you have any feed back please let me know.
+        Thanks for playing this game, i hope your character is satasfied and not hungry .
+                        If you have any feedback please let me know.
                                 Press Enter to continue     
             """
     end_screen_upper = Align.center(Panel.fit(f"[bold yellow]{string}",
@@ -796,7 +779,7 @@ This are the end result with the [bold red]{name.name}[/bold red]
                                     subtitle="Created by MujoHarac"),
                                     vertical="middle")
     end_screen_layout['down'].update(end_screen_down)
-    print(hungriness_points)
+    #print(hungriness_points)
     print(end_screen_layout)
     input()
     p = Prompt.ask("[bold red]Do you want to save this the end result[/bold red]?[cyan]y/n[/cyan]")
@@ -807,7 +790,7 @@ This are the end result with the [bold red]{name.name}[/bold red]
            'difficulty': dif,
            'hungriness': round(hungriness_points,2),
            'satisfaction': round(satisfaction_points,2)}
-        print(hungriness_points)
+        #print(hungriness_points)
         game_saving(dic)
         sys.exit()
     elif p == 'n':
@@ -847,7 +830,7 @@ def distance_between_places_getter(current_place, next_place):
         for places_par in distance_between_places_that_are_connected:
             if current_place in places_par[0] and next_place in places_par[0]:
                 distance = places_par[1]
-                #print('AKO RADI', distance)
+                
             else: 
                 distance = 1
         if distance == 1:
@@ -868,7 +851,7 @@ def satisfaction_points_calculator(distance, name, dif,weather):
     wind_coeff = weather.wind_coeff
     day_type = weather.day_coeff
     satisfaction_points = 0
-    print(type(distance))
+
     distance_satisfaction_points = round(distance / name.irritability_coefficient)
     temperature_satisfaction_points = round(distance / temperature_coeff)
     humidity_satisfaction_points = round(distance / humidity_coeff)
@@ -877,7 +860,6 @@ def satisfaction_points_calculator(distance, name, dif,weather):
     day_satisfaction_points = round(distance / day_type)
 
     satisfaction_points += distance_satisfaction_points + temperature_satisfaction_points+humidity_satisfaction_points+percipation_satisfaction_points+wind_satisfaction_points + day_satisfaction_points
-    print('gledam', satisfaction_points)
     name.satisfaction += satisfaction_points
     satisfaction_points = 0
 
@@ -889,9 +871,7 @@ def main_game_screen(name,dif):
     goal_progress, sat_task, hung_task, goal_table = goal_layout(layout_map)
     stats_layout(name, layout_map)
     weather = upper_main_layout(layout_map)
-    #adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table)
     tip_trick_main_layout(layout_map)
-    #adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table, name)
     main(layout_map,goal_progress, sat_task, hung_task,goal_table, name,dif,weather)
 
 ##########################################################
@@ -933,7 +913,6 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif,we
         elif place in choices:
             distance_useingFor_satisfaction = distance_between_places_getter(current_place, next_place)
             satisfaction_points_calculator(distance_useingFor_satisfaction, name, dif,weather)
-            #print('OGO GLEDAM',distance_useingFor_satisfaction)
             shop = dict_of_shops[f'{place}']
             dict_places_in_town_layout[f'{place}'](layout_map, place)
             hung, spent = shop_menu(layout_map, shop, name,money,place)

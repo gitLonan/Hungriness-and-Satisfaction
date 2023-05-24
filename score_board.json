@@ -89,5 +89,12 @@
         "difficulty": "Hard",
         "hungriness": 24.0,
         "satisfaction": 0
+    },
+    {
+        "person played": "Lazar",
+        "name": "Marko",
+        "difficulty": "Normal",
+        "hungriness": 77.0,
+        "satisfaction": 65
     }
 ]
