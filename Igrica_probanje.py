@@ -50,3 +50,5 @@ for i in distance_between_places_that_are_connected:
     print(i[0])
 
 print(random.choice(tags['broad']['meat']))
+
+print(round(1/40))

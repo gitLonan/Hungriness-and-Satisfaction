@@ -75,5 +75,19 @@
         "difficulty": "Easy",
         "hungriness": 69.5,
         "satisfaction": 0
+    },
+    {
+        "person played": "Nisam ja4",
+        "name": "Bogdan",
+        "difficulty": "Normal",
+        "hungriness": 60.5,
+        "satisfaction": 0
+    },
+    {
+        "person played": "Nisam ja3",
+        "name": "Teodora",
+        "difficulty": "Hard",
+        "hungriness": 24.0,
+        "satisfaction": 0
     }
 ]
