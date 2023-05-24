@@ -35,11 +35,11 @@ layout = Layout()
 #Hunger & Satisfaction
 #python -m rich.live
 ############# CHARACTER PREFRENCE ###########################################33
-BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "palačinka", "irritability": "low", 'color': 'bright_blue','irritability_coefficient': 0.1}
-MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high", 'color': 'bright_yellow','irritability_coefficient': 0.4}
-TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan salads", "irritability": "high", 'color': 'bright_magenta','irritability_coefficient': 0.35}
-VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "burek", "irritability": "no information", 'color': 'bright_black','irritability_coefficient': 0.25}
-ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "pasta", "irritability": "low", 'color': 'bright_green','irritability_coefficient': 0.15}
+BOGDAN ={'fitness': "7/10", "sweets": "loves them", "favorite_food": "pancake", "irritability": "low", 'color': 'bright_blue','irritability_coefficient': 50}
+MARKO ={'fitness': "9/10", "sweets": "no information", "favorite_food": "sausage", "irritability": "high", 'color': 'bright_yellow','irritability_coefficient': 20}
+TEODORA ={'fitness': "6/10", "sweets": "not a fan", "favorite_food": "vegan salads", "irritability": "high", 'color': 'bright_magenta','irritability_coefficient': 25}
+VELJKO ={'fitness': "2/10", "sweets": "preferes them", "favorite_food": "tortilla", "irritability": "no information", 'color': 'bright_black','irritability_coefficient': 40}
+ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "sesam", "irritability": "low", 'color': 'bright_green','irritability_coefficient': 55}
 
 
 #main roud is the big middle line spaning from start_1 to start_2, look it in maps_layout
@@ -74,38 +74,38 @@ dif = 'Normal' #sets difficulty in func choosing_difficulty, because if you dont
 ####ZA igrace mogu da napravim tagove i sto vise neka hrana ima tagove koji se poklapaju sa tom hranom
 #ono daje vise score-a
 ############# ZEMUN ###############
-zemun_kiklop = [{'hrana': 'Gyros 700g' ,            'cena': 800 , 'koeficijent': 0.9, 'tags': ['meat','big', 'tortilla','grilled']},
-                {'hrana': 'Kiklop hamburger 300g' , 'cena': 590 , 'koeficijent': 0.4, 'tags': ['meat', 'flatbread', 'low','grilled']},
-                {'hrana': 'Kebab rolls 225g' ,      'cena': 550, 'koeficijent': 0.3, 'tags': ['meat', 'kebab', 'bun', 'low','grilled']},
-                {'hrana': 'Pancakes' ,              'cena': 390 , 'koeficijent': 0.2, 'tags': ['sweet', 'eurocrem', 'bananas', 'medium']}
+zemun_kiklop = [{'hrana': 'Gyros 700g' ,            'cena': 800 , 'koeficijent': 1.7, 'tags': ['meat','big', 'tortilla','grilled']},
+                {'hrana': 'Kiklop hamburger 300g' , 'cena': 590 , 'koeficijent': 0.8, 'tags': ['meat', 'flatbread', 'low','grilled']},
+                {'hrana': 'Kebab rolls 225g' ,      'cena': 550, 'koeficijent': 0.6, 'tags': ['meat', 'kebab', 'bun', 'low','grilled']},
+                {'hrana': 'Pancakes' ,              'cena': 390 , 'koeficijent': 0.4, 'tags': ['sweet', 'eurocrem', 'bananas', 'medium']}
                 ]
 ############# NOVI BEOGRAD ###############
-novi_bg_food_fact = [{'hrana': 'Smoked sausage 200g' ,        'cena': 300 , 'koeficijent': 0.3, 'tags': ['meat', 'smoked','low','bun']},
-                     {'hrana': 'Leskovac burger 300g' ,       'cena': 350 , 'koeficijent': 0.1, 'tags': ['meat','low','bun','grilled']},
-                     {'hrana': 'Toasted sesame white 300g' ,  'cena': 350, 'koeficijent': 0.1, 'tags': ['sesam','meat','flatbread','medium']},
-                     {'hrana': 'Sirloin sandwich' ,           'cena': 170 , 'koeficijent': 0.2, 'tags': ['sandwich', 'low','meat', 'vegetable']}
+novi_bg_food_fact = [{'hrana': 'Smoked sausage 200g' ,        'cena': 300 , 'koeficijent': 0.6, 'tags': ['meat', 'smoked','low','bun']},
+                     {'hrana': 'Leskovac burger 300g' ,       'cena': 350 , 'koeficijent': 0.3, 'tags': ['meat','low','bun','grilled']},
+                     {'hrana': 'Toasted sesame white 300g' ,  'cena': 350, 'koeficijent': 0.3, 'tags': ['sesam','meat','flatbread','medium']},
+                     {'hrana': 'Sirloin sandwich' ,           'cena': 170 , 'koeficijent': 0.5, 'tags': ['sandwich', 'low','meat', 'vegetable']}
                      ]
 ############# VRACAR ###############
-vracar_mara = [{'hrana': 'Omelette Mara',                       'cena': 500, 'koeficijent': 0.2, 'tags': ['eggs', 'vegetable', 'big']},
-                     {'hrana': 'Tortilla stuffed shish kebab',  'cena': 430, 'koeficijent': 0.5, 'tags': ['meat', 'tortilla','kebab','medium','bacon','grilled']},
-                     {'hrana': 'Vegetarian tortilla' ,          'cena': 310, 'koeficijent': 0.5, 'tags': ['vegetable','tortilla','medium',]},
-                     {'hrana': 'Salad with chicken' ,           'cena': 440 , 'koeficijent': 0.3, 'tags': ['meat', 'vegetable','flatbread','smoked','big']}
+vracar_mara = [{'hrana': 'Omelette Mara',                       'cena': 500, 'koeficijent': 0.4, 'tags': ['eggs', 'vegetable', 'big']},
+                     {'hrana': 'Tortilla stuffed shish kebab',  'cena': 430, 'koeficijent': 1, 'tags': ['meat', 'tortilla','kebab','medium','bacon','grilled']},
+                     {'hrana': 'Vegetarian tortilla' ,          'cena': 310, 'koeficijent': 1, 'tags': ['vegetable','tortilla','medium',]},
+                     {'hrana': 'Salad with chicken' ,           'cena': 440 , 'koeficijent': 0.6, 'tags': ['meat', 'vegetable','flatbread','smoked','big']}
             ]
 ############# ZVEZDARA ###############
-zvezdara_gusar = [{'hrana': 'Gourmet hamburger 280g', 'cena': 350, 'koeficijent': 0.2, 'tags':['meat', 'bun', 'low']},
-                     {'hrana': 'White Hanger 200g',   'cena': 300, 'koeficijent': 0.2, 'tags': ['meat','low']},
-                     {'hrana': 'Kinder pancakes' ,    'cena': 250, 'koeficijent': 0.4, 'tags': ['sweet','kinder','vanilla','eurocrem','medium']},
-                     {'hrana': 'Pancake Pirate' ,     'cena': 300 , 'koeficijent': 0.1, 'tags': ['sweet','nutella','bananas']}
+zvezdara_gusar = [{'hrana': 'Gourmet hamburger 280g', 'cena': 350, 'koeficijent': 0.4, 'tags':['meat', 'bun', 'low']},
+                     {'hrana': 'White Hanger 200g',   'cena': 300, 'koeficijent': 0.4, 'tags': ['meat','low']},
+                     {'hrana': 'Kinder pancakes' ,    'cena': 250, 'koeficijent': 0.8, 'tags': ['sweet','kinder','vanilla','eurocrem','medium']},
+                     {'hrana': 'Pancake Pirate' ,     'cena': 300 , 'koeficijent': 0.3, 'tags': ['sweet','nutella','bananas']}
                 ]
 ############# VOZDOVAC ###############
-vozdovac_vajat = [{'hrana': 'Vienna schnitzel 200g',  'cena': 300, 'koeficijent': 0.7, 'tags': ['meat', 'schnitzel','bun','medium','kajmak']},
-                     {'hrana': 'Bun with cream 220g', 'cena': 150, 'koeficijent': 0.1, 'tags': ['kajmak','bun','low']},
-                     {'hrana': 'French fries 200g',  'cena': 180, 'koeficijent': 0.6, 'tags': ['french fries','toasted']},
-                     {'hrana': 'sweet pies',          'cena': 400, 'koeficijent': 0.3, 'tags': ['sweet','vanilla','pies', 'big']}
+vozdovac_vajat = [{'hrana': 'Vienna schnitzel 200g',  'cena': 300, 'koeficijent': 1.4, 'tags': ['meat', 'schnitzel','bun','medium','kajmak']},
+                     {'hrana': 'Bun with cream 220g', 'cena': 150, 'koeficijent': 0.3, 'tags': ['kajmak','bun','low']},
+                     {'hrana': 'French fries 200g',  'cena': 180, 'koeficijent': 1.2, 'tags': ['french fries','toasted']},
+                     {'hrana': 'sweet pies',          'cena': 400, 'koeficijent': 0.6, 'tags': ['sweet','vanilla','pies', 'big']}
                 ]
 ############# GROCKA ###############
-grocka_panter = [{'hrana': 'Bacon in a flatbread 150g', 'cena': 330, 'koeficijent': 1.1, 'tags': ['meat', 'bacon','flatbread','low']},
-                     {'hrana': 'Burger hot 160g',       'cena': 150, 'koeficijent': 0.6, 'tags': ['meat','bun','low','grilled']},
+grocka_panter = [{'hrana': 'Bacon in a flatbread 150g', 'cena': 330, 'koeficijent': 1.4, 'tags': ['meat', 'bacon','flatbread','low']},
+                     {'hrana': 'Burger hot 160g',       'cena': 150, 'koeficijent': 1.2, 'tags': ['meat','bun','low','grilled']},
                      {'hrana': 'Gourmet burger 230g' ,  'cena': 420, 'koeficijent': 1.3, 'tags': ['meat','grilled','medium']},
                      {'hrana': 'Kebabs on cream 400g' , 'cena': 740, 'koeficijent': 1.8, 'tags': ['meat','kebab','kajmak','big','bun']}
                 ]
@@ -179,15 +179,90 @@ class Character():
                                 ), box=box.ROUNDED, title=f"{self.name}", border_style=f"{self.color}"
                             )
         return stats_panel
-class Weather(Character):
-    def __init__(self, temp, percipation, humidity, wind):
-        super().__init__(name,irritability_coefficient)    
+    
+class Weather():
+    def __init__(self, day, temp, percipation, humidity, wind):    
+        self.day = day
         self.temp = temp
         self.percipation = percipation
         self.humidity = humidity
         self.wind = wind
-        self.name = char_name
-        self.irritability_coefficient = irritability_coefficient
+        self.day_coeff = 0
+        self.temp_coeff = 0
+        self.percipation_coeff = 0
+        self.humidity_coeff  = 0
+        self.wind_coeff = 0
+
+    def getting_weather_temp_coefficients(self):
+        if self.temp in range(20,25):
+            self.temp_coeff += 100
+        elif self.temp in range(15,20):
+            self.temp_coeff += 120
+        elif self.temp in range(10,15):
+            self.temp_coeff += 140
+        elif self.temp in range(5,10):
+            self.temp_coeff += 80
+        elif self.temp in range(0,5):
+            self.temp_coeff += 60
+        elif self.temp in range(-5,0):
+            self.temp_coeff += 40
+
+    def getting_weather_percipation_coefficients(self):
+        if self.percipation in range(70, 75):
+            self.percipation_coeff += 40
+        elif self.percipation in range(60, 70):
+            self.percipation_coeff += 60
+        elif self.percipation in range(50, 60):
+            self.percipation_coeff += 80
+        elif self.percipation in range(40, 50):
+            self.percipation_coeff += 100
+        elif self.percipation in range(30, 40):
+            self.percipation_coeff += 120
+
+    def getting_weather_humidity_coefficients(self):
+        if self.humidity in range(90,100):
+            self.humidity_coeff += 30
+        elif self.humidity in range(80,90):
+            self.humidity_coeff += 50
+        elif self.humidity in range(70,80):
+            self.humidity_coeff += 70
+        elif self.humidity in range(60,70):
+            self.humidity_coeff += 90 
+        elif self.humidity in range(50,60):
+            self.humidity_coeff += 130
+        elif self.humidity in range(40,50):
+            self.humidity_coeff += 100
+        elif self.humidity in range(30,40):
+            self.humidity_coeff += 80
+        
+    def getting_weather_wind_coefficients(self):
+        if self.wind in range(35, 40):
+            self.wind_coeff += 30
+        elif self.wind in range(30, 35):
+            self.wind_coeff += 40
+        elif self.wind in range(25, 30):
+            self.wind_coeff += 50
+        elif self.wind in range(20, 25):
+            self.wind_coeff += 70
+        elif self.wind in range(15, 20):
+            self.wind_coeff += 90
+        elif self.wind in range(10, 15):
+            self.wind_coeff += 100
+        elif self.wind in range(5, 10):
+            self.wind_coeff += 130
+    
+    def getting_day_coefficients(self):
+        if self.day == 'sunny':
+            self.day_coeff += 100
+        elif self.day == 'cloudy':
+            self.day_coeff += 85
+        elif self.day == 'rainy':
+            self.day_coeff += 60
+        elif self.day == 'snowie':
+            self.day_coeff += 30
+
+
+        
 
 ##############################################################################33
 ################################################################################
@@ -581,19 +656,7 @@ dict_places_in_town_layout = {'Zemun': zemun,
                               'Zvezdara': zvezdara,
                               'Vozdovac': vozdovac,
                               'Grocka': grocka}
-###################   SHOPS   ###########################################################
 
-#Shops in ZEMUN
-
-#Shops in NOVI BEOGRAD
-
-#Shops in VRACAR
-
-#Shops in ZVEZDARA
-
-#Shops in VOZDOVAC
-
-#Shops in GROCKA
 
 ###########################################################################################
 def goal_update(hung_points,hung_task,sat_task,goal_table,goal_progress):
@@ -609,8 +672,8 @@ def goal_layout(layout_map):
                     BarColumn(),
                             )
 
-    sat_task = goal_progress.add_task('Satisfaction',total=100)
-    hung_task = goal_progress.add_task('Hungriness',total=100)
+    sat_task = goal_progress.add_task('Irritation',total=100)
+    hung_task = goal_progress.add_task('Hungerless',total=100)
 
     goal_table = Table.grid(expand = True)
     goal_table.add_row(Panel.fit(
@@ -642,6 +705,13 @@ def upper_main_layout(layout_map):
                     f'{temperature}°C Precipitation-{percipitation}% Humidity-{humidity}% Wind-{wind} km/h')
     table_panel = Panel(table, style="dark_olive_green3")
     layout_map['upper'].update(table_panel)
+    weather = Weather(day, temperature, percipitation, humidity, wind)
+    weather.getting_weather_temp_coefficients()
+    weather.getting_weather_humidity_coefficients()
+    weather.getting_weather_percipation_coefficients()
+    weather.getting_weather_wind_coefficients()
+    weather.getting_day_coefficients()
+    return weather
 
 def tip_trick_main_layout(layout_map):
     tip_1 = """
@@ -757,12 +827,11 @@ def adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_tab
     #sat_task,hung_task, goal_progress,layout_map
     #Here im updating Panel for the goals of the game
     lista = [sat_task, hung_task]
+    
     goal_list = [name.satisfaction, name.hungriness]
-    print(goal_list)
     if name.hungriness > 0 or name.satisfaction > 0:
         for i,j in enumerate(lista):
             goal_progress.update(i, advance=goal_list[i])
-            goal=0
         layout_map["goal_box"].update(goal_table)
     name.inTotalHungriness += name.hungriness
     name.inTotalSatisfaction += name.satisfaction
@@ -774,27 +843,43 @@ def distance_between_places_getter(current_place, next_place):
     #What is main roud is explaind near the top of the file, in short its the line going straight down
     distance_to_main_roud = 0
     distance_from_road_to_place = 0
-    for places_par in distance_between_places_that_are_connected:
-        if current_place in places_par[0] and next_place in places_par[0]:
-            distance = places_par[1]
-            #print('AKO RADI', distance)
-        else: distance = 0
-    if distance == 0:
-        for places_par in distance_between_places_using_main_roud:
-            if current_place in places_par[0]:
-                distance_to_main_roud = places_par[1]
-            if next_place in places_par[0]:
-                distance_from_road_to_place = places_par[1]
-        return distance_to_main_roud + distance_from_road_to_place
-    else:
-        pass 
+    if current_place != next_place:
+        for places_par in distance_between_places_that_are_connected:
+            if current_place in places_par[0] and next_place in places_par[0]:
+                distance = places_par[1]
+                #print('AKO RADI', distance)
+            else: 
+                distance = 1
+        if distance == 1:
+            for places_par in distance_between_places_using_main_roud:
+                if current_place in places_par[0]:
+                    distance_to_main_roud = places_par[1]
+                if next_place in places_par[0]:
+                    distance_from_road_to_place = places_par[1]
+            return distance_to_main_roud + distance_from_road_to_place
+    else: 
+        distance = 1
+        return distance
     
-def satisfaction_points_calculator(distance, name, dif,):
-    sunny_mod = 1
-    cloudy_mod = 0.9
-    rainy_mod = 0.6
-    snowie_mod = 0.3
+def satisfaction_points_calculator(distance, name, dif,weather):
+    temperature_coeff = weather.temp_coeff 
+    humidity_coeff = weather.humidity_coeff
+    percipation_coeff = weather.percipation_coeff
+    wind_coeff = weather.wind_coeff
+    day_type = weather.day_coeff
+    satisfaction_points = 0
+    print(type(distance))
+    distance_satisfaction_points = round(distance / name.irritability_coefficient)
+    temperature_satisfaction_points = round(distance / temperature_coeff)
+    humidity_satisfaction_points = round(distance / humidity_coeff)
+    percipation_satisfaction_points = round(distance / percipation_coeff)
+    wind_satisfaction_points = round(distance / wind_coeff)
+    day_satisfaction_points = round(distance / day_type)
 
+    satisfaction_points += distance_satisfaction_points + temperature_satisfaction_points+humidity_satisfaction_points+percipation_satisfaction_points+wind_satisfaction_points + day_satisfaction_points
+    print('gledam', satisfaction_points)
+    name.satisfaction += satisfaction_points
+    satisfaction_points = 0
 
 ###################   MAIN GAME PRINTING SCREEN   #################
 
@@ -803,15 +888,16 @@ def main_game_screen(name,dif):
     layout_map = layout_main_game_screen(name)
     goal_progress, sat_task, hung_task, goal_table = goal_layout(layout_map)
     stats_layout(name, layout_map)
-    upper_main_layout(layout_map)
+    weather = upper_main_layout(layout_map)
     #adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table)
     tip_trick_main_layout(layout_map)
-    main(layout_map,goal_progress, sat_task, hung_task,goal_table, name,dif)
+    #adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table, name)
+    main(layout_map,goal_progress, sat_task, hung_task,goal_table, name,dif,weather)
 
 ##########################################################
 
 #######################   MAIN   ###############################################
-def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
+def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif,weather):
 #place starts with place='' because in function town_layout(code line 413), we have a function that calls
 #from a file maps_layout and depending on the place you visit the yellow * acts as a pointer
 #where you are currently     
@@ -826,6 +912,7 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
         
         place = Prompt.ask("[bright_yellow]Choose the place you want to visit?")
         next_place = place
+
         if place == 'back':
             p = Prompt.ask("[bold red]Are you sure you want to go back to Character screen?[/][cyan]y/n[/cyan]")
             if p == 'y':
@@ -845,7 +932,7 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
             continue
         elif place in choices:
             distance_useingFor_satisfaction = distance_between_places_getter(current_place, next_place)
-            satisfaction_points_calculator(distance_useingFor_satisfaction, name, dif)
+            satisfaction_points_calculator(distance_useingFor_satisfaction, name, dif,weather)
             #print('OGO GLEDAM',distance_useingFor_satisfaction)
             shop = dict_of_shops[f'{place}']
             dict_places_in_town_layout[f'{place}'](layout_map, place)
@@ -853,8 +940,8 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif):
             name.hungriness += hung
             name.money -= spent
             layout_map['stats_box'].update(name.status_layout())
-            print(layout_map)
             adding_goal_progress(goal_progress, sat_task, hung_task, layout_map,goal_table, name)
-            main(layout_map,goal_progress, sat_task, hung_task, goal_table,name,dif)
+            print(layout_map)
+            main(layout_map,goal_progress, sat_task, hung_task, goal_table,name,dif,weather)
 
 intro()
