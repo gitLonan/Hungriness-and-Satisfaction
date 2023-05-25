@@ -46,16 +46,16 @@ ANA ={'fitness': "4/10", "sweets": "not a fan", "favorite_food": "sesam", "irrit
 distance_between_places_using_main_roud = (
                             (('start_1','roud'), 100),
                             (('start_2','roud'), 50),
-                            (('Zemun','roud'), 200),
-                            (('Vracar','roud'), 150),
-                            (('Novi Beograd', 'roud'), 300),
-                            (('Zvezdara','roud'), 350),
-                            (('Vozdovac','roud'), 450),
-                            (('Grocka','roud'), 200),
+                            (('Zemun','roud'), 180),
+                            (('Vracar','roud'), 130),
+                            (('Novi Beograd', 'roud'), 250),
+                            (('Zvezdara','roud'), 300),
+                            (('Vozdovac','roud'), 350),
+                            (('Grocka','roud'), 180),
                             )
 
 distance_between_places_that_are_connected = (
-                            (('Vracar','Zvezdara'), 200),
+                            (('Vracar','Zvezdara'), 100),
                             (('Zemun','Novi Beograd'), 50),
                                             )
 
@@ -195,71 +195,71 @@ class Weather():
 
     def getting_weather_temp_coefficients(self):
         if self.temp in range(20,35):
-            self.temp_coeff += 100
-        elif self.temp in range(15,20):
             self.temp_coeff += 120
-        elif self.temp in range(10,15):
+        elif self.temp in range(15,20):
             self.temp_coeff += 140
+        elif self.temp in range(10,15):
+            self.temp_coeff += 160
         elif self.temp in range(5,10):
-            self.temp_coeff += 80
+            self.temp_coeff += 100
         elif self.temp in range(0,5):
+            self.temp_coeff += 80
+        elif self.temp in range(-6,0):
             self.temp_coeff += 60
-        elif self.temp in range(-5,0):
-            self.temp_coeff += 40
 
     def getting_weather_percipation_coefficients(self):
         if self.percipation in range(70, 80):
-            self.percipation_coeff += 40
-        elif self.percipation in range(60, 70):
             self.percipation_coeff += 60
-        elif self.percipation in range(50, 60):
+        elif self.percipation in range(60, 70):
             self.percipation_coeff += 80
-        elif self.percipation in range(40, 50):
+        elif self.percipation in range(50, 60):
             self.percipation_coeff += 100
-        elif self.percipation in range(30, 40):
+        elif self.percipation in range(40, 50):
             self.percipation_coeff += 120
+        elif self.percipation in range(30, 40):
+            self.percipation_coeff += 140
 
     def getting_weather_humidity_coefficients(self):
         if self.humidity in range(90,100):
-            self.humidity_coeff += 30
-        elif self.humidity in range(80,90):
             self.humidity_coeff += 50
-        elif self.humidity in range(70,80):
+        elif self.humidity in range(80,90):
             self.humidity_coeff += 70
+        elif self.humidity in range(70,80):
+            self.humidity_coeff += 90
         elif self.humidity in range(60,70):
-            self.humidity_coeff += 90 
+            self.humidity_coeff += 110
         elif self.humidity in range(50,60):
-            self.humidity_coeff += 130
+            self.humidity_coeff += 150
         elif self.humidity in range(40,50):
-            self.humidity_coeff += 100
+            self.humidity_coeff += 120
         elif self.humidity in range(30,40):
-            self.humidity_coeff += 80
+            self.humidity_coeff += 100
         
     def getting_weather_wind_coefficients(self):
         if self.wind in range(35, 45):
-            self.wind_coeff += 30
+            self.wind_coeff += 60
         elif self.wind in range(30, 35):
-            self.wind_coeff += 40
-        elif self.wind in range(25, 30):
-            self.wind_coeff += 50
-        elif self.wind in range(20, 25):
             self.wind_coeff += 70
-        elif self.wind in range(15, 20):
-            self.wind_coeff += 90
-        elif self.wind in range(10, 15):
+        elif self.wind in range(25, 30):
+            self.wind_coeff += 80
+        elif self.wind in range(20, 25):
             self.wind_coeff += 100
-        elif self.wind in range(5, 10):
+        elif self.wind in range(15, 20):
+            self.wind_coeff += 120
+        elif self.wind in range(10, 15):
             self.wind_coeff += 130
+        elif self.wind in range(5, 10):
+            self.wind_coeff += 160
     
     def getting_day_coefficients(self):
         if self.day == 'sunny':
-            self.day_coeff += 100
+            self.day_coeff += 110
         elif self.day == 'cloudy':
-            self.day_coeff += 85
+            self.day_coeff += 95
         elif self.day == 'rainy':
-            self.day_coeff += 60
+            self.day_coeff += 70
         elif self.day == 'snowie':
-            self.day_coeff += 30
+            self.day_coeff += 40
 
 
         
@@ -269,7 +269,7 @@ class Weather():
 
 #Intro screen, first thing you see when you start the game
 def intro():
-    loading_screen_before_intro()
+    #loading_screen_before_intro()
     string = """
 Welcome to the game of Hunger & Satisfaction
             """
@@ -829,7 +829,9 @@ def distance_between_places_getter(current_place, next_place):
     if current_place != next_place:
         for places_par in distance_between_places_that_are_connected:
             if current_place in places_par[0] and next_place in places_par[0]:
+                print("VALJDA USAO JEBOTE")
                 distance = places_par[1]
+                return distance
                 
             else: 
                 distance = 1
@@ -844,7 +846,7 @@ def distance_between_places_getter(current_place, next_place):
         distance = 1
         return distance
     
-def satisfaction_points_calculator(distance, name, dif,weather):
+def satisfaction_points_calculator(distance, name,weather):
     temperature_coeff = weather.temp_coeff 
     humidity_coeff = weather.humidity_coeff
     percipation_coeff = weather.percipation_coeff
@@ -912,7 +914,8 @@ def main(layout_map, goal_progress, sat_task, hung_task, goal_table, name,dif,we
             continue
         elif place in choices:
             distance_useingFor_satisfaction = distance_between_places_getter(current_place, next_place)
-            satisfaction_points_calculator(distance_useingFor_satisfaction, name, dif,weather)
+            satisfaction_points_calculator(distance_useingFor_satisfaction, name,weather)
+            #print(name.satisfaction)
             shop = dict_of_shops[f'{place}']
             dict_places_in_town_layout[f'{place}'](layout_map, place)
             hung, spent = shop_menu(layout_map, shop, name,money,place)
