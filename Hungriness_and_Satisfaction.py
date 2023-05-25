@@ -194,7 +194,7 @@ class Weather():
         self.wind_coeff = 0
 
     def getting_weather_temp_coefficients(self):
-        if self.temp in range(20,25):
+        if self.temp in range(20,35):
             self.temp_coeff += 100
         elif self.temp in range(15,20):
             self.temp_coeff += 120
@@ -208,7 +208,7 @@ class Weather():
             self.temp_coeff += 40
 
     def getting_weather_percipation_coefficients(self):
-        if self.percipation in range(70, 75):
+        if self.percipation in range(70, 80):
             self.percipation_coeff += 40
         elif self.percipation in range(60, 70):
             self.percipation_coeff += 60
@@ -236,7 +236,7 @@ class Weather():
             self.humidity_coeff += 80
         
     def getting_weather_wind_coefficients(self):
-        if self.wind in range(35, 40):
+        if self.wind in range(35, 45):
             self.wind_coeff += 30
         elif self.wind in range(30, 35):
             self.wind_coeff += 40
