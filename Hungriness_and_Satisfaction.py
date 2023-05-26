@@ -63,10 +63,6 @@ distance_between_places_that_are_connected = (
 place = '' #This is used in main(), more explaination down there
 
 
-#they are needed to score the in the game and are called in adding_goal_progress() line 439
-# hungriness_points = 0
-# satisfaction_points = 0
-
 difficulty = {'Hard': 1100, 'Normal':1900, 'Easy': 2700} #1100,1900,2700
 dif = 'Normal' #sets difficulty in func choosing_difficulty, because if you dont choose its set to Normal
 
@@ -444,6 +440,9 @@ There is couple of things you should think about when choosing a character. Thei
 regards of food you'll be buying and how far are you willing to travel for them, because more distance you
 travers more iritated person becomes.
 When you start a yellow '*' will indicate where you are on the map
+[bold red]Every time you want to go back to the previous screen, just type 'back' [/]
+[bold red]If you want to end the session and save you results just type 'end' while in "City map" [/]
+
 
             """
 
@@ -718,10 +717,23 @@ def tip_trick_main_layout(layout_map):
     tip_1 = """
 You should watch out for rainy days, it can make your character agitated if you travel too much
             """
-
+    
+    tip_2 = """
+If its windy outside maybe you shouldnt visit many shops, especially if your character gets irritated easily
+            """
+    
+    tip_3 = """
+Fitter the character bigger the belly, maybe it perfers larger meals
+            """
+    
+    tip_4 = """
+Even if your character doesnt perfer sweets, doesnt mean it doesnt have a favorite toping or a specific sweet
+            """
+    lists_tips = [tip_1, tip_2, tip_3, tip_4]
+    tips = random.choice(lists_tips)
     table = Table.grid(expand= True)
     table.add_column(style='green', justify='left')
-    a = Panel(f"[deep_pink4]{tip_1}",
+    a = Panel(f"[deep_pink4]{tips}",
                         title="Tips & Tricks",
                         subtitle="Created by MujoHarac",
                         box = box.ROUNDED,
