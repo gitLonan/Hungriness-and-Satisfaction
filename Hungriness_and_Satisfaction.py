@@ -783,8 +783,8 @@ def end_game_screen(name,dif):
     
     string = f"""
 This are the end result with the [bold red]{name.name}[/bold red]
-    -Hungriness: {hungriness_points}%
-    -Satisfaction: {satisfaction_points}%
+    -Hungerless: {hungriness_points}%
+    -Irritation: {satisfaction_points}%
             """ 
     end_screen_down = Align.center(Panel.fit(f"[green1]{string}",
                                     title=" Hunger & Satisfaction ",
@@ -800,8 +800,8 @@ This are the end result with the [bold red]{name.name}[/bold red]
         dic = {'person played': player,
             'name': name.name,
            'difficulty': dif,
-           'hungriness': round(hungriness_points,2),
-           'satisfaction': round(satisfaction_points,2)}
+           'Hungerless': round(hungriness_points,2),
+           'Irritation': round(satisfaction_points,2)}
         #print(hungriness_points)
         game_saving(dic)
         sys.exit()
