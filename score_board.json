@@ -1,100 +1,51 @@
 [
     {
         "person played": "Lazar",
-        "name": "Ana",
-        "difficulty": "Normal",
-        "hungriness": 0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Marko",
-        "difficulty": "Normal",
-        "hungriness": 60.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Veljko",
-        "difficulty": "Hard",
-        "hungriness": 40.5,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Teodora",
-        "difficulty": "Easy",
-        "hungriness": 0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Teodora",
-        "difficulty": "Normal",
-        "hungriness": 37.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Teodora",
-        "difficulty": "Easy",
-        "hungriness": 37.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Ana",
-        "difficulty": "Normal",
-        "hungriness": 21.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Teodora",
-        "difficulty": "Normal",
-        "hungriness": 55.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Teodora",
-        "difficulty": "Normal",
-        "hungriness": 60.00000000000001,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Ana",
-        "difficulty": "Normal",
-        "hungriness": 37.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
-        "name": "Veljko",
-        "difficulty": "Easy",
-        "hungriness": 69.5,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Nisam ja4",
-        "name": "Bogdan",
-        "difficulty": "Normal",
-        "hungriness": 60.5,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Nisam ja3",
-        "name": "Teodora",
-        "difficulty": "Hard",
-        "hungriness": 24.0,
-        "satisfaction": 0
-    },
-    {
-        "person played": "Lazar",
         "name": "Marko",
         "difficulty": "Normal",
         "hungriness": 77.0,
         "satisfaction": 65
+    },
+    {
+        "person played": "Lazar",
+        "name": "Bogdan",
+        "difficulty": "Normal",
+        "Hungerless": 69.5,
+        "Irritation": 36
+    },
+    {
+        "person played": "Marko",
+        "name": "Ana",
+        "difficulty": "Normal",
+        "Hungerless": 64.0,
+        "Irritation": 67
+    },
+    {
+        "person played": "Marko",
+        "name": "Teodora",
+        "difficulty": "Hard",
+        "Hungerless": 41.0,
+        "Irritation": 19
+    },
+    {
+        "person played": "Lazar",
+        "name": "Veljko",
+        "difficulty": "Normal",
+        "Hungerless": 103.0,
+        "Irritation": 26
+    },
+    {
+        "person played": "Lazar",
+        "name": "Bogdan",
+        "difficulty": "Easy",
+        "Hungerless": 129.0,
+        "Irritation": 69
+    },
+    {
+        "person played": "Lazar",
+        "name": "Marko",
+        "difficulty": "Hard",
+        "Hungerless": 23.0,
+        "Irritation": 11
     }
 ]
