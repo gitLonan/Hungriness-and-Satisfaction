@@ -265,7 +265,7 @@ class Weather():
 
 #Intro screen, first thing you see when you start the game
 def intro():
-    #loading_screen_before_intro()
+    loading_screen_before_intro()
     string = """
 Welcome to the game of Hunger & Satisfaction
             """
@@ -841,7 +841,6 @@ def distance_between_places_getter(current_place, next_place):
     if current_place != next_place:
         for places_par in distance_between_places_that_are_connected:
             if current_place in places_par[0] and next_place in places_par[0]:
-                print("VALJDA USAO JEBOTE")
                 distance = places_par[1]
                 return distance
                 
