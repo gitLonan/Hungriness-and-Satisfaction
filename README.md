@@ -9,7 +9,11 @@ Main point of the game is to go around municipalities in Belgrade and satisfy ne
   
 ![Alt text](./city_map.PNG)  
   
-Every character has their food preferance and how easily they are irritated. Since every food has certain tags which players dont see but some of them can be guessed based on food that they are buying. Based on those tags different coefficients will be added and it will generate certain points towards the bar "Hungerless". Irritation part comes in to play based on multiple factors. Since every municipalitie has certain distance between them its not the same when needing to travel while the weather is sunny and temperature is ok and traveling when its closer to zero temperature and its snowing. Based on that every character has a characteristic "irritability" which players sees when choosing how easily is that character irritated; all the factors that have a degree of influence are weather, temperature, percipation, humidity, wind and all of them a player can see and judge based on that if he wants to travel a lot or not.  
+Every character has their food preferance and how easily they are irritated.  
+  
+![Alt text](./char_selection_screen.PNG)   
+  
+Since every food has certain tags which players dont see but some of them can be guessed based on food that they are buying. Based on those tags different coefficients will be added and it will generate certain points towards the bar "Hungerless". Irritation part comes in to play based on multiple factors. Since every municipalitie has certain distance between them its not the same when needing to travel while the weather is sunny and temperature is ok and traveling when its closer to zero temperature and its snowing. Based on that every character has a characteristic "irritability" which players sees when choosing how easily is that character irritated; all the factors that have a degree of influence are weather, temperature, percipation, humidity, wind and all of them a player can see and judge based on that if he wants to travel a lot or not.  
 
 ![Alt text](./weather_example.PNG) 
   
