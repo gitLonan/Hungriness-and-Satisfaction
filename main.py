@@ -70,6 +70,7 @@ dif = 'Normal' #sets difficulty in func choosing_difficulty, because if you dont
 ####ZA igrace mogu da napravim tagove i sto vise neka hrana ima tagove koji se poklapaju sa tom hranom
 #ono daje vise score-a
 ############# ZEMUN ###############
+
 zemun_kiklop = [{'hrana': 'Gyros 700g' ,            'cena': 800 , 'koeficijent': 1.7, 'tags': ['meat','big', 'tortilla','grilled']},
                 {'hrana': 'Kiklop hamburger 300g' , 'cena': 590 , 'koeficijent': 0.8, 'tags': ['meat', 'flatbread', 'low','grilled']},
                 {'hrana': 'Kebab rolls 225g' ,      'cena': 550, 'koeficijent': 0.6, 'tags': ['meat', 'kebab', 'bun', 'low','grilled']},

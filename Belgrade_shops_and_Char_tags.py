@@ -65,7 +65,6 @@ ANA = {'broad': {'meat': 0.2, 'vegetable': 0.3, 'sweet': -0.2},
 
 
 ###################   SHOPS   ###########################################################
-#Shops in ZEMUN
 #For functionality of the algoritam for this func is: we have nested dic soo we need 2 for loops
 #every menu and every food has tags in their dictionery(you can find it in the main file of the game)
 #this func checks if prefrences of a character overlaps with the tags for that food, if it does

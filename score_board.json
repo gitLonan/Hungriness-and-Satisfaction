@@ -47,5 +47,19 @@
         "difficulty": "Hard",
         "Hungerless": 23.0,
         "Irritation": 11
+    },
+    {
+        "person played": "Zarkovo",
+        "name": "Bogdan",
+        "difficulty": "Hard",
+        "Hungerless": 32.5,
+        "Irritation": 92
+    },
+    {
+        "person played": "Zarkovo",
+        "name": "Marko",
+        "difficulty": "Easy",
+        "Hungerless": 94.0,
+        "Irritation": 21
     }
 ]
