@@ -265,6 +265,7 @@ class Weather():
 ################################################################################
 
 #Intro screen, first thing you see when you start the game
+            
 def intro():
     loading_screen_before_intro()
     string = """
